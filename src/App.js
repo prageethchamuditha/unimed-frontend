@@ -245,7 +245,13 @@ function App() {
           {history && history.length > 0 ? (
             <div className="history-box">
               <h3>Medical History</h3>
-              <pre>{JSON.stringify(history, null, 2)}</pre>
+              {history.map((record, index) => (
+                <div key={index} className="record-card">
+                  <p><strong>Date:</strong> {new Date(record.timestamp).toLocaleString()}</p>
+                  <p><strong>Diagnosis:</strong> {record.diagnosis}</p>
+                  <p><strong>Prescription:</strong> {record.prescription}</p>
+                </div>
+              ))}
             </div>
           ) : history && history.length === 0 ? (
             <div className="history-box">
