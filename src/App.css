@@ -42,9 +42,20 @@ button {
   border: 1px solid #ddd;
 }
 
-pre {
-  white-space: pre-wrap;
+.record-card {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
   word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.record-card p {
+  margin: 5px 0;
+  line-height: 1.4;
 }
 
 .voice-group {
@@ -69,6 +80,7 @@ pre {
   border-radius: 4px;
   margin-bottom: 20px;
   box-sizing: border-box;
+  resize: vertical;
 }
 
 .btn-save {
