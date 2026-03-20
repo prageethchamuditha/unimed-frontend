@@ -50,7 +50,7 @@ function App() {
       const response = await fetch(`${API_BASE_URL}/student/${indexNumber}`);
       if (response.ok) {
         const data = await response.json();
-        setHistory(data.medicalRecords);
+        setHistory(data.medicalRecords || []);
       } else {
         setHistory(null);
         alert("Student not registered. Please register them first.");
@@ -247,7 +247,6 @@ function App() {
               <h3>Medical History</h3>
               {history.map((record, index) => (
                 <div key={index} className="record-card">
-                  <p><strong>Date:</strong> {new Date(record.timestamp).toLocaleString()}</p>
                   <p><strong>Diagnosis:</strong> {record.diagnosis}</p>
                   <p><strong>Prescription:</strong> {record.prescription}</p>
                 </div>
