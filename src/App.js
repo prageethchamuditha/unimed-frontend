@@ -114,16 +114,17 @@ function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ doctorId: docId, name: docName, password: docPass })
       });
+      const data = await response.json();
       if (response.ok) {
         setDocId('');
         setDocName('');
         setDocPass('');
         alert("Doctor Registered!");
       } else {
-        alert("Failed");
+        alert("Failed: " + (data.error || "Unknown server error"));
       }
     } catch (error) {
-      alert("Error");
+      alert("Error: Could not connect to server");
     }
   };
 
@@ -134,16 +135,17 @@ function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ labId: labId, name: labName, password: labPass })
       });
+      const data = await response.json();
       if (response.ok) {
         setLabId('');
         setLabName('');
         setLabPass('');
         alert("Lab Assistant Registered!");
       } else {
-        alert("Failed");
+        alert("Failed: " + (data.error || "Unknown server error"));
       }
     } catch (error) {
-      alert("Error");
+      alert("Error: Could not connect to server");
     }
   };
 
