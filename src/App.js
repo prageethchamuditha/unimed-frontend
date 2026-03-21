@@ -132,7 +132,7 @@ function App() {
       const response = await fetch(`${API_BASE_URL}/labassistant`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ assistantId: labId, name: labName, password: labPass })
+        body: JSON.stringify({ labId: labId, name: labName, password: labPass })
       });
       if (response.ok) {
         setLabId('');
